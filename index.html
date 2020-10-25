@@ -1,59 +1,183 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
 <html>
 <head>
-	<title>Contact us</title>
-<!-- define some style elements-->
-<style>
-h1
-{
-	font-family : Arial, Helvetica, sans-serif;
-	font-size : 16px;
-    font-weight : bold;
-}
-label,a 
-{
-	font-family : Arial, Helvetica, sans-serif;
-	font-size : 12px; 
-}
-
-</style>	
-<!-- a helper script for vaidating the form-->
+	<title>Printimine tellimuse esitamine vorm
+</title>
 <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
 </head>	
 </head>
 
 <body>
-<h1>Contact us</h1>
-<form method="POST" name="contactform" action="contact-form-handler.php"> 
-<p>
-<label for='name'>Your Name:</label> <br>
-<input type="text" name="name">
-</p>
-<p>
-<label for='email'>Email Address:</label> <br>
-<input type="text" name="email"> <br>
-</p>
-<p>
-<label for='message'>Message:</label> <br>
-<textarea name="message"></textarea>
-</p>
-<input type="submit" value="Submit"><br>
-</form>
 
-<script language="JavaScript">
-// Code for validating the form
-// Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
-// for details
-var frmvalidator  = new Validator("contactform");
-frmvalidator.addValidation("name","req","Please provide your name"); 
-frmvalidator.addValidation("email","req","Please provide your email"); 
-frmvalidator.addValidation("email","email","Please enter a valid email address"); 
-</script>
-<!--
-Sample code from:
-http://www.html-form-guide.com/contact-form/php-email-contact-form.html
--->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
+<style>
+.form-group{
+ margin-bottom: 15px;
+}
+label{
+ margin-bottom: 15px;
+}
+input,
+input::-webkit-input-placeholder {
+ font-size: 11px;
+ padding-top: 3px;
+}
+.form-control {
+ height: auto!important;
+padding: 8px 12px !important;
+}
+.input-group {
+ box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+}
+#button {
+ border: 1px solid #ccc;
+ margin-top: 28px;
+ padding: 6px 12px;
+ color: #666;
+ text-shadow: 0 1px #fff;
+ cursor: pointer;
+ border-radius: 3px 3px;
+ box-shadow: 0 1px #fff inset, 0 1px #ddd;
+ background: #f5f5f5;
+ background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
+ background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+ background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+ background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+ background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
+}
+.main-form{
+ margin-top: 30px;
+ margin: 0 auto;
+ max-width: 400px;
+ padding: 10px 40px;
+background:#009edf;
+color: #FFF;
+text-shadow: none;
+box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+}
+span.input-group-addon i {
+ color: #009edf;
+ font-size: 17px;
+}
+.login-button{
+ margin-top: 5px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.center2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1 
+{
+font-size:20px;
+}
+</style>
+
+ <div class="container">
+ <div class="row main-form">
+ <form class="" method="post" action="#">
+
+<img src="pic/bm_logo.png" alt="Büroomaailm logo" class="center" width="" height="auto">
+<div class="center2">
+<br>
+<h1> Printimine tellimuse esitamine vorm</h1>
+<br>
+</div>
+
+
+ <div class="form-group">
+ <label for="email" class="cols-sm-2 control-label">E-mail</label>
+ <div class="cols-sm-10">
+ <div class="input-group">
+ <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+ <input type="text" class="form-control" name="email" id="email" placeholder="Sisesta e-mail"/>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="form-group">
+ <label for="name" class="cols-sm-2 control-label">Telefon</label>
+ <div class="cols-sm-10">
+ <div class="input-group">
+ <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+ <input type="tel" class="form-control" name="phone" id="phone"  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Sisesta telefoni number"/>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="form-group">
+ <label for="numberofcopy" class="cols-sm-2 control-label">Mittu koopia?</label>
+ <div class="cols-sm-10">
+ <div class="input-group">
+ <span class="input-group-addon"><i class="glyphicon glyphicon-modal-window
+" aria-hidden="true"></i></span>
+ <input type="number" min="1" value="1" max="10000" class="form-control" name="username" id="username" placeholder="Enter your Username"/>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="form-group center2">
+  <label for="numberofcopy" class="cols-sm-2 control-label">Kuidas soovite printida?</label>
+  <div class="cols-sm-10">
+ <div class="input-group">
+<label class="radio-inline"><input type="radio" name="double" checked>1-poolne</label>
+<label class="radio-inline"><input type="radio" name="double">2-poolne</label>
+ </div>
+ </div>
+ </div>
+ 
+  <div class="form-group center2">
+  <label for="numberofcopy" class="cols-sm-2 control-label">Värviline või must/valge?</label>
+  <div class="cols-sm-10">
+ <div class="input-group">
+<label class="radio-inline"><input type="radio" name="color" checked>Värviline</label>
+<label class="radio-inline"><input type="radio" name="color">Must/Valge</label>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="form-group">
+ <label for="wetransfer" class="cols-sm-2 control-label">WeTransfer link</label>
+ <div class="cols-sm-10">
+ <div class="input-group">
+ <span class="input-group-addon"><i class="glyphicon glyphicon-link" aria-hidden="true"></i></span>
+ <input type="text" class="form-control" name="link" id="link" placeholder="Sisesta WeTransfer link"/>
+ </div>
+ </div>
+ </div>
+    <div class="form-group">
+ <iframe src="https://we.tl/send/en/this-is-an-example" width="WIDTH" height="50" frameborder="0"></iframe>
+</div>
+ 
+ 
+  <div class="form-group">
+ <label for="name" class="cols-sm-2 control-label">Lisa info</label>
+ <div class="cols-sm-10">
+ <div class="input-group">
+ <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i></span>
+ <textarea rows="3" cols="35" name="comment" style="background-color: white;color:black;"></textarea>
+ </div>
+ </div>
+ </div>
+
+
+
+ <div class="form-group ">
+ <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Esitada tellimus</a>
+ </div>
+ 
+ </form>
+ </div>
+ </div>
 
 </body>
 </html>
