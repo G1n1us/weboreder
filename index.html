@@ -101,7 +101,10 @@ font-size:20px;
  <div class="cols-sm-10">
  <div class="input-group">
  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
- <input type="email" class="form-control" name="email" id="email" required placeholder="Sisesta e-mail"/>
+ <input type="email" class="form-control" name="email" id="email" 
+ required placeholder="Sisesta e-mail" 
+ oninvalid="this.setCustomValidity('Palun sisesta e-mail')"
+oninput="setCustomValidity('')" />
  </div>
  </div>
  </div>
