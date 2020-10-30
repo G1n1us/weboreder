@@ -16,10 +16,26 @@ if (isset($_POST["send"]))
 	mail($to, $subject, $msg, $headerss);
 	print "<script>alert(\"Сообщение успешно отправлено!\");window.location = window.location.href</script>";
 }*/
+
+if (isset($_POST["send"])) {
+$to = "byroomaailm.teenuse@gmail.com";
+$subject = "Printimine tellimus veb-vorm";
+$charset = "utf-8";
+$headerss ="Content-type: text/html; charset=$charset\r\n";
+$headerss.="MIME-Version: 1.0\r\n";
+$headerss.="Date: ".date('D, d M Y h:i:s O')."\r\n";
+$msg = "E-mail: ".$_POST["email"]."\n";$msg .= "Telefon: ".$_POST["phone"]."\n";
+mail($to, $subject, $msg, $headerss);
+print "<script>alert(\"Tellimus on esitatud!\");window.location = window.location.href</script>";
+}
+
+
 ?>
 
 
+
 <?php
+/*
 if($_POST){
   $email = $_POST['email'];
   $name = $_POST['phone'];
@@ -30,7 +46,7 @@ if($_POST){
   $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
   $headers .= "From: $name <$email>\r\nReply-to : $name <$email>\nX-Mailer:PHP";
 
-  $subject="$objet";
+  $subject="$object";
   $destinataire="teenused.peter@byroomaailm.ee";
   $body="$message";
 
@@ -44,4 +60,4 @@ if($_POST){
 
   echo json_encode($response);
 }
-?>
+?>*/ 
