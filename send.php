@@ -1,56 +1,41 @@
 <?php
-/*
-if(mail("lait@mail.ru", "My Subject", "Line 1\nLine 2\nLine 3")) echo "message send";
-else echo "message not send";
-
-if (isset($_POST["send"])) 
-{	
-	$to = "teenused.peter@byroomaailm.ee";
-	$subject = "Printimine tellimus";
-	$charset = "utf-8";
-	$headerss ="Content-type: text/html; charset=$charset\r\n";
-	$headerss.="MIME-Version: 1.0\r\n";
-	$headerss.="Date: ".date('D, d M Y h:i:s O')."\r\n";
-	$msg = "E-mail: ".$_POST["email"]."\n";$msg .= "Tel.number: ".$_POST["phone"]."\n";
-
-	mail($to, $subject, $msg, $headerss);
-	print "<script>alert(\"Сообщение успешно отправлено!\");window.location = window.location.href</script>";
-}*/
-
-if (isset($_POST["send"])) {
-$to = "byroomaailm.teenuse@gmail.com";
-$subject = "Printimine tellimus veb-vorm";
-$charset = "utf-8";
-$headerss ="Content-type: text/html; charset=$charset\r\n";
-$headerss.="MIME-Version: 1.0\r\n";
-$headerss.="Date: ".date('D, d M Y h:i:s O')."\r\n";
-$msg = "E-mail: ".$_POST["email"]."\n";$msg .= "Telefon: ".$_POST["phone"]."\n";
-mail($to, $subject, $msg, $headerss);
-print "<script>alert(\"Tellimus on esitatud!\");window.location = window.location.href</script>";
-}
-
-
-?>
-
-
-
-<?php
-/*
 if($_POST){
-  $email = $_POST['email'];
-  $name = $_POST['phone'];
-  $object = $_POST['copy'];
-  $message = $_POST['double'];
+  $email	 = $_POST['email'];
+  $phone	 = $_POST['phone'];
+  //$copynr	 = $_POST['copynr'];
+  $double	 = $_POST['double'];
+  $color 	 = $_POST['color'];
+  $link		 = $_POST['link'];
+  $comment   = $_POST['comment'];
 
   $headers = "MIME-Version: 1.0\r\n";
   $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
-  $headers .= "From: $name <$email>\r\nReply-to : $name <$email>\nX-Mailer:PHP";
+  $headers .= "$email /n $phone /n $double /n $color /n $link /n $comment";
+  $message = 
+  " 
+  <html>
+<head>
+<title>HTML email</title>
+</head>
+<body>
+<p>This email contains HTML Tags!</p>
+<table>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+</tr>
+<tr>
+<td>John</td>
+<td>Doe</td>
+</tr>
+</table>
+</body>
+</html>
+  ";
+  $subject = "E-tellimine printimine teenus";
+  $to="aleksei.rusin@byroomaailm.ee, byroomaailm.teenuse@gmail.com";
 
-  $subject="$object";
-  $destinataire="teenused.peter@byroomaailm.ee";
-  $body="$message";
-
-  if(mail($destinataire,$subject,$body,$headers)) {
+  if(mail($to,$subject,$headers)) {
     $response['status'] = 'success';
     $response['msg'] = 'your mail is sent';
   } else {
@@ -60,4 +45,4 @@ if($_POST){
 
   echo json_encode($response);
 }
-?>*/ 
+?>
