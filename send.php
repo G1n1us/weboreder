@@ -23,88 +23,26 @@ if($_POST){
   5) Lisa info: $comment";
   $subject = "E-tellimine printimine teenus";
   //$from="E-printimine@byroomaailm.ee";
-  $to="aleksei.rusin@byroomaailm.ee, byroomaailm.teenuse@gmail.com, aleksei.rusin@tptlive.ee";
+  $to="aleksei.rusin@tptlive.ee, aleksei.rusin.pv.11@gmail.com";
 
   if(mail($to,$subject,$message,$headers)) {
+	 $response['status'] = 'success';
 	 ?>
          <script type="text/javascript">
             alert("Aitäh, teie tellimus on vastu võetud!");
         </script>
         <?php
-	echo " 
-
-	<html>
-	<head>
-	<title>Printimine tellimuse õnnestatud</title>
-	</head>	
-	<body>
-	<style>
-	.center
-	{
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		width: 50%;
-	}
-	h1
-	{
-		font-size:20px;
-	}
-	</style>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css' />
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
-
-	<div class='container'>
-<BR>
-<div class='center'>
-<h1>T&auml;name tellimuse eest</h1>
-</div>
-<BR><BR><BR>
-<div class='center'>
-	<a class='btn btn-primary' href='index.html' role='button'>Esitada uue tellimus</a>		
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-	<a class='btn btn-primary' href='https://www.byroomaailm.ee/' role='button'>Byroomaailm.ee</a>
-	</div>
-</div>
-</body>
-</html>";
+		header ('Location: thankyou.html');  
+		exit();    
   } else {
-    echo " 
-	<html>
-	<head>
-	<title>Printimine tellimuse õnnestatud</title>
-	</head>	
-	<body>
-	<style>
-	.center
-	{
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		width: 50%;
-	}
-	h1
-	{
-		font-size:20px;
-	}
-	</style>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css' />
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
-
-	<div class='container'>
-<img src='pic/bm_logo.png' alt='B&uuml;roomaailm logo' class='center' width='auto' height='20%'>
-<BR>
-<div class='center'>
-<h1>Kahjuks midagi läks valesti, proovige uuesti tellimus esitada</h1>
-</div>
-<BR><BR><BR>
-<div class='center'>
-	<a class='btn btn-primary' href='index.html' role='button'>Alustada uuesti tellimus</a>
-	<a class='btn btn-primary' href='https://www.byroomaailm.ee/' role='button'>Byroomaailm.ee</a>
-	</div>
-</div>
-</body>
-</html>";
+      $response['status'] = 'error';
+	  ?>
+	   <script type="text/javascript">
+            alert("Kahjuks midagi läks valesti, provige uuesti!");
+        </script>
+		<?php
+		header ('Location: bad.html');  
+		exit();  
   }
 }
 ?>
