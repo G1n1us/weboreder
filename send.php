@@ -23,10 +23,16 @@ if($_POST){
   5) Lisa info: $comment";
   $subject = "E-tellimine printimine teenus";
   //$from="E-printimine@byroomaailm.ee";
-  $to="aleksei.rusin@tptlive.ee, aleksei.rusin.pv.11@gmail.com";
+  $to="aleksei.rusin@tptlive.ee";
+  $customer=$email;
+  $custsub="Tellimuse edastamine";
+  $custmsg="Aitäh, oleme edastanud teie päringu Büroomaailma, teie kirjale vastatakse 1-2 tööpäeva jooksul
+  Teie tellimuse kirjeldus:
+  $message";
 
   if(mail($to,$subject,$message,$headers)) {
 	 $response['status'] = 'success';
+	 mail($customer,$custsub,$custmsg,$headers)
 	 ?>
          <script type="text/javascript">
             alert("Aitäh, teie tellimus on vastu võetud!");
